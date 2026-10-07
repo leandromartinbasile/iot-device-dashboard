@@ -126,6 +126,8 @@ CORS_ALLOWED_ORIGINS = [
 ]
 CORS_ALLOW_CREDENTIALS = True
 
+CSRF_TRUSTED_ORIGINS = os.environ.get("CSRF_TRUSTED_ORIGINS", "").split(",") if os.environ.get("CSRF_TRUSTED_ORIGINS") else []
+
 CELERY_BROKER_URL = "redis://localhost:6379/0"
 CELERY_RESULT_BACKEND = "redis://localhost:6379/0"
 CELERY_ACCEPT_CONTENT = ["json"]
